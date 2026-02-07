@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Rose Day, My Love!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff69b4, #ffb6c1);
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in;
+        }
+        p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            animation: fadeIn 3s ease-in;
+        }
+        button {
+            background: #ff1493;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        button:hover {
+            transform: scale(1.1);
+        }
+        .rose {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: url('https://i.imgur.com/4Z8m7wL.png') no-repeat center;
+            background-size: cover;
+            animation: float 5s infinite linear;
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ffd700;
+            border-radius: 50%;
+            animation: fall 3s infinite linear;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
+            color: #ff69b4;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10px); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy Rose Day, My Hubby! 🌹</h1>
+    <p>You're the rose in my garden, blooming forever in my heart.</p>
+    <button onclick="showPopup()">Click for a Special Surprise!</button>
+    
+    <!-- Floating Roses -->
+    <div class="rose" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="rose" style="left: 30%; animation-delay: 1s;"></div>
+    <div class="rose" style="left: 50%; animation-delay: 2s;"></div>
+    <div class="rose" style="left: 70%; animation-delay: 3s;"></div>
+    <div class="rose" style="left: 90%; animation-delay: 4s;"></div>
+    
+    <!-- Confetti Burst -->
+    <div class="confetti" style="left: 20%; animation-delay: 0s;"></div>
+    <div class="confetti" style="left: 40%; animation-delay: 0.5s;"></div>
+    <div class="confetti" style="left: 60%; animation-delay: 1s;"></div>
+    <div class="confetti" style="left: 80%; animation-delay: 1.5s;"></div>
+    
+    <!-- Popup Message -->
+    <div id="popup" class="popup">
+        <h2>My Dearest Hubby,</h2>
+        <p>On this Rose Day, I want to say you're my everything. Like a rose, you're beautiful, strong, and full of love. I love you more than words can say! 💕</p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+    
+    <script>
+        function showPopup() {
+            document.getElementById('popup').style.display = 'block';
+        }
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+        
+        // Auto-confetti on load
+        window.onload = function() {
+            // Add more confetti dynamically for popping effect
+            for (let i = 0; i < 20; i++) {
+                let confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.animationDelay = Math.random() * 3 + 's';
+                document.body.appendChild(confetti);
+            }
+        };
+    </script>
+</body>
+</html>
